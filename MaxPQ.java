@@ -3,16 +3,24 @@ public class MaxPQ<Key extends Comparable<Key>> {
     private int N;
 
     public MaxPQ(int capacity){ 
-        pq = (Key[]) new Comparable[capacity+1]; //pq +1?
+        pq = (Key[]) new Comparable[capacity+1]; //????
     }
 
     public boolean isEmpty(){ 
-        return N == 0; 
+        return N == 0;  // N é quantos estão inseridos já
+    }
+
+    public int size(){
+        return N; 
     }
 
     public void insert(Key key){
         pq[++N] = key;
         swim(N);
+    }
+
+    public Key head(){
+        return pq[1];
     }
 
     public Key delMax(){ 
@@ -55,4 +63,3 @@ public class MaxPQ<Key extends Comparable<Key>> {
         Key t = pq[i]; pq[i] = pq[j]; pq[j] = t; 
     }
 }
-//métodos atualiza 
