@@ -21,8 +21,8 @@ public class MaxPQ<Key extends Comparable<Key>> {
         swim(N);
     }
 
-    public Key max(){
-        if(isEmpty()){
+    public Key max(){     //retorna a raíz do heap
+        if(isEmpty()){   //se tiver raíz vazia retorna null
             return null;
         }
         return pq[1];

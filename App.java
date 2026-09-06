@@ -28,12 +28,11 @@ public class App {
 
             switch(comando){
 
-                //Lê o arquivo da região, 
-                // uma criança por vez, e atualiza o Top-10.
+            //Lê o arquivo da região, uma criança por vez, e atualiza o Top-10.
                 case "consultar" -> consultar(nomeArquivo, maxheap);
                     
-                //Exibe as até 10 crianças atualmente armazenadas, 
-                // da mais covarde para a menos covarde (escore crescente)
+            //Exibe as até 10 crianças atualmente armazenadas, 
+            // da mais covarde para a menos covarde (escore crescente)
                 case "mostrar"  -> mostrar(maxheap);
         
                 case "limpar"   -> maxheap = limpar();
@@ -121,7 +120,7 @@ public class App {
             //comparar c a raíz do heap
             if(maxheap.size() >= CAPACITY){
 
-                if(novaCrianca.compareTo(maxheap.head()) < 0){
+                if(novaCrianca.compareTo(maxheap.max()) < 0){
                     maxheap.delMax(); 
                     maxheap.insert(novaCrianca);
                 }
