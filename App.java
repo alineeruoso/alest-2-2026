@@ -119,8 +119,9 @@ public class App {
 
             //comparar c a raíz do heap
             if(maxheap.size() >= CAPACITY){
+                Crianca maiorTop10 = maxheap.max();
 
-                if(novaCrianca.compareTo(maxheap.max()) < 0){
+                if(maiorTop10 != null && novaCrianca.compareTo(maiorTop10) < 0){
                     maxheap.delMax(); 
                     maxheap.insert(novaCrianca);
                 }

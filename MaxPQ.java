@@ -2,7 +2,6 @@ public class MaxPQ<Key extends Comparable<Key>> {
     private Key[] pq;
     private int N;
 
-    @SuppressWarnings("unchecked")
     public MaxPQ(int capacity){ 
         pq = (Key[]) new Comparable[capacity+1];
     }
@@ -51,7 +50,6 @@ public class MaxPQ<Key extends Comparable<Key>> {
             k = k/2;
         }
     }
-
 
     private void sink(int indicePai){ 
         while (2 * indicePai <= N){
