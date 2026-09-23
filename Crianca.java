@@ -17,14 +17,12 @@ public class Crianca implements Comparable<Crianca> {
 
     @Override
     public int compareTo(Crianca outra) { 
-        //proteção contra comparação do objeto atual com ele mesmo
         if (this == outra) {
             return 0;
         }
 
-        //proteção contra objeto nulo recebido por parâmetro
         if (outra == null) {
-            return 1; //this é maior que null (considera elementos válidos prioritários)
+            return 1; 
         }
 
         //compara score

@@ -14,7 +14,7 @@ public class App {
         while(executando){
             System.out.print("\n Pennywise> ");
 
-            String entrada = leEntrada.nextLine().toLowerCase().trim();
+            String entrada = leEntrada.nextLine().trim();
 
             if(entrada.isEmpty()){
                 continue;
@@ -22,17 +22,14 @@ public class App {
 
             String[] partes = entrada.trim().split("\\s+", 2);
 
-            String comando = partes[0]; 
+            String comando = partes[0].toLowerCase(); 
             String nomeArquivo = partes.length > 1 ? partes[1] : "";
 
 
             switch(comando){
 
-            //Lê o arquivo da região, uma criança por vez, e atualiza o Top-10.
                 case "consultar" -> consultar(nomeArquivo, maxheap);
                     
-            //Exibe as até 10 crianças atualmente armazenadas, 
-            // da mais covarde para a menos covarde (escore crescente)
                 case "mostrar"  -> mostrar(maxheap);
         
                 case "limpar"   -> maxheap = limpar();
@@ -51,7 +48,7 @@ public class App {
     
     public static void consultar(String nomeArquivo, MaxPQ<Crianca> maxheap) throws Exception {
         if(nomeArquivo.isEmpty()){
-            System.out.println("\n Digite o nome do arquivo após 'consultar'");
+            System.out.println("\n Digite com o seguinte formato: consultar <nomedoarquivo.txt> ");
             return;
         }
         processaDados(nomeArquivo,maxheap);
@@ -87,7 +84,7 @@ public class App {
 
     public static void menu(){
         System.out.println("\n");
-        System.out.println("consultar <arquivo> -> Lê o arquivo da região e atualiza o Top-10");
+        System.out.println("consultar <arquivo.txt> -> Lê o arquivo da região e atualiza o Top-10");
         System.out.println("mostrar -> Exibe o Top-10");
         System.out.println("limpar -> Limpa consultas realizadas");
         System.out.println("ajuda -> Lista os comandos disponíveis");
@@ -130,6 +127,7 @@ public class App {
                 maxheap.insert(novaCrianca); 
             }
             
+            //print pra verificar carregamento do arquivo
             System.out.println(novaCrianca.toString());
         } 
         System.out.println("\n Top-10 atualizado.");
